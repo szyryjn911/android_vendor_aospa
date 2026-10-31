@@ -13,3 +13,12 @@ license {
         "NOTICE",
     ],
 }
+
+// Non-Lineage build: empty stub for the header lib that normally comes from
+// Lineage's build system (generated_kernel_headers, used by hardware/mediatek
+// PowerOffAlarm). qti_kernel_headers comes from the kernel (gen_headers patch).
+cc_library_headers {
+    name: "generated_kernel_headers",
+    vendor_available: true,
+    recovery_available: true,
+}

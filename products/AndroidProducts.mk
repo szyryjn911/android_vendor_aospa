@@ -5,6 +5,7 @@
 
 # Product Makefiles
 PRODUCT_MAKEFILES += \
+    $(LOCAL_DIR)/RMX2020/aospa_RMX2020.mk \
     $(LOCAL_DIR)/alioth/aospa_alioth.mk \
     $(LOCAL_DIR)/apollo/aospa_apollo.mk \
     $(LOCAL_DIR)/bitra/aospa_bitra.mk \
@@ -39,6 +40,7 @@ PRODUCT_MAKEFILES += \
 
 # Lunch targets
 COMMON_LUNCH_CHOICES += \
+    aospa_RMX2020-userdebug \
     aospa_alioth-userdebug \
     aospa_apollo-userdebug \
     aospa_bitra-userdebug \

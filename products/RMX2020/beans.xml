@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!--
+     SPDX-FileCopyrightText: Paranoid Android
+     SPDX-License-Identifier: Apache-2.0
+-->
+<!--
+  RMX2020 (MT6768). Entries marked CHECK must be verified/edited before use:
+  repo names that I could not see, and your own forks (YOURUSER) of the YAAP repos
+  that carry the RMX2020 fixes (see COMMIT_PLAN.txt).
+  The device tree (device/realme/RMX2020) is kept as a manual clone, as before.
+-->
+<manifest>
+  <!-- CHECK: exact repo names of kernel and IMS vendor -->
+  <project path="kernel/realme/RMX2020" name="szyryjn911/android_kernel_realme_RMX2020" remote="github" revision="17.0" />
+  <project path="vendor/realme/RMX2020" name="szyryjn911/proprietary_vendor_realme_RMX2020" remote="github" revision="seventeen" clone-depth="1" />
+  <project path="vendor/realme/RMX2020-ims" name="szyryjn911/proprietary_vendor_realme_RMX2020-ims" remote="github" revision="seventeen" clone-depth="1" />
+
+  <!-- your forks of the YAAP repos, with the patches from patches/ applied -->
+  <project path="hardware/mediatek" name="YOURUSER/hardware_mediatek" remote="github" revision="seventeen" />
+  <project path="device/mediatek/sepolicy_vndr" name="YOURUSER/device_mediatek_sepolicy_vndr" remote="github" revision="seventeen" />
+  <project path="hardware/google/pixel" name="YOURUSER/hardware_google_pixel" remote="github" revision="seventeen" />
+  <remove-project name="AOSPA/android_hardware_lineage_compat" />
+  <project path="hardware/lineage/compat" name="YOURUSER/hardware_lineage_compat" remote="github" revision="seventeen" />
+
+  <!-- needed by device/mediatek/sepolicy_vndr (SEPolicy.mk) and libion sepolicy; CHECK branch matches A17 -->
+  <project path="device/lineage/sepolicy" name="LineageOS/android_device_lineage_sepolicy" remote="github" revision="lineage-24.0" />
+
+  <!-- non-A/B device: AOSP updater binary lives here; AOSPA manifest does not have it -->
+  <project path="bootable/deprecated-ota" name="platform/bootable/deprecated-ota" remote="aosp" />
+
+  <!-- Qualcomm/CLO-modified projects replaced by plain AOSP (android-17.0.0_r1 via the aosp remote) -->
+  <remove-project name="platform/external/libchrome" />
+  <remove-project name="platform/external/libcxx" />
+  <remove-project name="platform/external/obex" />
+  <remove-project name="platform/system/librustutils" />
+  <remove-project name="platform/packages/services/Telephony" />
+  <remove-project name="AOSPA/android_packages_services_Telecomm" />
+  <project path="external/libchrome" name="platform/external/libchrome" remote="aosp" />
+  <project path="external/libcxx" name="platform/external/libcxx" remote="aosp" />
+  <project path="external/obex" name="platform/external/obex" remote="aosp" />
+  <project path="system/librustutils" name="platform/system/librustutils" remote="aosp" />
+  <project path="packages/services/Telephony" name="platform/packages/services/Telephony" remote="aosp" />
+  <project path="packages/services/Telecomm" name="platform/packages/services/Telecomm" remote="aosp" />
+</manifest>
